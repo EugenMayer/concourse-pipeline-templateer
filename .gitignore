@@ -1,5 +1,5 @@
 .idea/workspace.xml
-test/assets/pipeline_*.yaml
+test/assets/pipeline*.yaml
 # Createad by .ignore support plugin (hsz.mobi)
 ### Ruby template
 *.gem
