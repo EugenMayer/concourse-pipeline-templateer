@@ -1,9 +1,9 @@
 #!/bin/bash
-
-set -e
+#!/bin/bash
 gem build ctpl.gemspec
 version=`cat VERSION`
-gem nexus ctpl-$version.gem
-rm -f ctpl-$version.gem
-git tag $version || true
+gem push ctpl-$version.gem
+rm ctpl-$version.gem
+git tag $version
+git push
 git push --tags
