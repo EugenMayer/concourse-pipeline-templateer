@@ -1,0 +1,20 @@
+jobs:
+  - name: parent-job1
+    plan:
+    - get: parent-resource
+
+resources:
+  - name: parent-resource
+    type: git
+    source:
+      uri: ((app.git-repo))
+      private_key: ((github-private-key))
+      branch: master
+
+resource_types:
+  - name: docker-image-resource-ng
+    type: docker-image
+    privileged: true
+    source:
+      repository: eugenmayer/concourse-docker-image-resource
+      tag: latest

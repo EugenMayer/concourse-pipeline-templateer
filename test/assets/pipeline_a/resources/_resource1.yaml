@@ -1,0 +1,7 @@
+resources:
+  - name: single-resource
+    type: git
+    source:
+      uri: ((child.git-repo))
+      private_key: ((github-private-key))
+      branch: master

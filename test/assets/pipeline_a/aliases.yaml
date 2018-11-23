@@ -1,0 +1,30 @@
+success_params: &success_params
+  params:
+    color:                green
+    from:                 "Concourse CI"
+    message:
+      template:           'Release Build SUCCESS [ ${BUILD_TEAM_NAME} | <strong>${BUILD_PIPELINE_NAME}/${BUILD_JOB_NAME}</strong> | ${BUILD_NAME} ] - <a href="https://ci.kw.kontextwork.com/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_JOB_NAME}/builds/${BUILD_NAME}">Build Log</a>'
+    message_format:       html
+
+success_notify: &success_notify
+  do:
+  - put: hipchat-notification-builds
+    <<: *success_params
+  - put: hipchat-notification-status
+    <<: *success_params
+
+failure_params: &failure_params
+  params:
+    color:                red
+    notify:               true
+    from:                 "Concourse CI"
+    message:
+      template:           'Release Build FAILED [ ${BUILD_TEAM_NAME} | <strong>${BUILD_PIPELINE_NAME}/${BUILD_JOB_NAME}</strong> | ${BUILD_NAME} ] - <a href="https://ci.kw.kontextwork.com/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_JOB_NAME}/builds/${BUILD_NAME}">Build Log</a>'
+    message_format:       html
+
+failure_notify: &failure_notify
+  do:
+  - put: hipchat-notification-builds
+    <<: *failure_params
+  - put: hipchat-notification-status
+    <<: *failure_params

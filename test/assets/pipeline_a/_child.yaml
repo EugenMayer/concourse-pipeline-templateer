@@ -1,0 +1,14 @@
+jobs:
+- name: child-job
+  plan:
+  - get: child-resource
+  on_failure:
+    <<: *failure_notify
+
+resources:
+- name: child-resource
+  type: git
+  source:
+    uri: ((child.git-repo))
+    private_key: ((github-private-key))
+    branch: master
