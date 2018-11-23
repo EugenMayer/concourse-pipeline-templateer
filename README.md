@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/ctpl.svg)](https://badge.fury.io/rb/ctpl)
+
 ## WAT
 
 This tool enables you to split your `pipeline.yml` into several single files, as many as you like and generates a `fly`
