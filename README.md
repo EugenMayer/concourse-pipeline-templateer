@@ -105,6 +105,14 @@ The glob is sorted, for now all you can do is using things like
 
 This would put the staging jobs/resources first, then candidate then releases.
 
+
+## Why ruby?
+
+Implementing this feature in golang does need a lot more effort due to the way we can "unserialize" a "unknown" yaml structure
+and just merge some aspects and keep anything else in place until then.
+
+If you feel lucky and want to try to implement in golang as a drop in to `ctpl` - please keep me posted! Very interesting.
+
 ## Contribute / Features
 
 Yes please, i beg you :) - But please do not open FR in issues when you do not want to work on them yourself - only for pre-discussions.
