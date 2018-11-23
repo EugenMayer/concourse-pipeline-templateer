@@ -89,17 +89,26 @@ with any other alias or they could colide. If you need an alias in more then one
 ## FAQ
 
 **Is the `<basefolder>/pipeline.yaml` file required**
+
 No
 
+---
+
 **Is the `<basefolder>/aliases.yaml` file required**
-No 
+
+No
+
+--- 
 
 **Is can you use custom keys in your partials**
+
 Yes - any. We only merge `jobs`/`resource_types`/`resources`/`groups` - anything else is just combined as yaml would do it
 This also means, that if you have several things defining a toplevel `foo: bar` - the one included as the last one wins
 
+---
 
 **Can i have several different pipelines**
+
 Yes, e.g. create `ci/pipeline_a` / `ci/pipeline_b` `ci/pipeline_c` and then run
 
 ```console
@@ -109,6 +118,8 @@ ctpl -b ./pipeline_b -o pipeline_b.yaml
 ctpl -b ./pipeline_c -o pipeline_c.yaml
 ```
 
+---
+
 **Can i define a order**
 The glob is sorted, for now all you can do is using things like
  
@@ -117,7 +128,6 @@ The glob is sorted, for now all you can do is using things like
 - `ci/pipeline/_3_release.yml`
 
 This would put the staging jobs/resources first, then candidate then releases.
-
 
 
 ## Why ruby?
