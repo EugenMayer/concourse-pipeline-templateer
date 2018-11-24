@@ -2,9 +2,13 @@
 
 ## WAT
 
-This tool enables you to split your `pipeline.yml` into several splitted, structural files - as many as you like - 
+A Concourse pipeline and it's defintion in `pipeline.yaml` becomes huge, clunky and messy very fast. `ctpl` to the rescue.
+
+This tool enables you to split your `pipeline.yml` into several structural files - as many as you like - 
 and compiles it for usage with `fly`. The`pipeline.yml` has properly merged `jobs`/`resource_types`/`resources`/`groups`
 
+You can split as granular as you like.
+ 
 **Check some example projects**
 
 - [concourse-app-release-lifecycle-example](https://github.com/kw-concourse-example/concourse-app-release-lifecycle-example)
@@ -14,7 +18,18 @@ and compiles it for usage with `fly`. The`pipeline.yml` has properly merged `job
 ```console
 gem install ctpl
 ```
+## Quick start
 
+Example project with real multi-stage pipeline and several resources
+
+```consule
+git clone https://github.com/kw-concourse-example/concourse-app-release-lifecycle-example
+cd ci
+ctpl
+```
+
+Now check the generated `./pipeline.yaml` in your CWD and compare the source in `ci/pipeline/`
+ 
 ## Usage
 
 1. Create a folder `pipeline` in your e.g. `ci` folder `ci/pipeline`
@@ -44,15 +59,18 @@ Now go on and split your `pipeline.yaml` into for example
 - `ci/pipeline/jobs/_release.yml`
 
 This is just an example, you could not use folders at all or even deeper nesting. The only rule is, all "partials"
-so all files to be merged into your main `ci/pipeline/pipeline.yaml` must begin match this glob `_*.yaml`
+so all files to be merged into your main `ci/pipeline/pipeline.yaml` must begin match this glob
+
+partial: `_*.yaml`
 
 I kept the actual "format" fairly open, so you can work 
- - with folder or without folders
- - you can group your partials by `jobs` (so jobs and their resources)
+ - with folder or without folders, or any level of subfolders
+ - you could group your partials by `jobs` (so a job and it's resources)
  - you could also rather group by type, so group `jobs`, `resources` into several files
- - you can create a file per job/resource each or combine them
+ - you could create a file per job/resource even or combine them
+ - you can still/also/in addition define resources/jobs .. and so on in your `pipeline.yaml`- they all get merged
  
-Or you can just mix all those. 
+Or you can just mix all those anytime as you like.
 
 ### Advanced 
 
