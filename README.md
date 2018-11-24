@@ -5,7 +5,7 @@
 This tool enables you to split your `pipeline.yml` into several splitted, structural files - as many as you like - 
 and compiles it for usage with `fly`. The`pipeline.yml` has properly merged `jobs`/`resource_types`/`resources`/`groups`
 
-## Example projects
+**Check some example projects**
 
 - [concourse-app-release-lifecycle-example](https://github.com/kw-concourse-example/concourse-app-release-lifecycle-example)
 
