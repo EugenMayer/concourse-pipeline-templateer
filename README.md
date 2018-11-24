@@ -2,8 +2,8 @@
 
 ## WAT
 
-This tool enables you to split your `pipeline.yml` into several single files, as many as you like and generates a `fly`
-compatible `pipeline.yml` while merging `jobs`/`resource_types`/`resources`/`groups`
+This tool enables you to split your `pipeline.yml` into several splitted, structural files - as many as you like - 
+and compiles it for usage with `fly`. The`pipeline.yml` has properly merged `jobs`/`resource_types`/`resources`/`groups`
 
 ## Installation
 

@@ -20,10 +20,10 @@ end
 begin
   # show the generate help by default
   if ARGV[0] == "help" || ARGV[0] == "--help" || ARGV[0] == "-?"
-    ARGV.unshift("generate")
+    ARGV.unshift("compile")
     ARGV.unshift("help")
-  elsif ARGV[0] != "generate" # default to generate if nothing else passed
-    ARGV.unshift("generate")
+  elsif ARGV[0] != "compile" # default to generate if nothing else passed
+    ARGV.unshift("compile")
   end
 
   Ctpl::Generate.start(ARGV)

@@ -1,6 +1,6 @@
 require 'yaml'
 
-class PipelineMerger
+class PipelineCompiler
   include Thor::Shell
 
   def initialize(mainPipelinePath, globalAliasesPath, partialsFolder)
