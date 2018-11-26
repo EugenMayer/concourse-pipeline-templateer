@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ctpl (0.0.4)
+    ctpl (0.0.5)
       thor (~> 0.20, >= 0.20.0)
 
 GEM

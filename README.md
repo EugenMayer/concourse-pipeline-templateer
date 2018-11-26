@@ -33,7 +33,7 @@ Now check the generated `./pipeline.yaml` in your CWD and compare the source in 
 ## Usage
 
 1. Create a folder `pipeline` in your e.g. `ci` folder `ci/pipeline`
-2. Move your `ci/pipeline.yaml` to `ci/pipeline/pipeline.yaml`
+2. Move your `ci/pipeline.yaml` to `ci/pipeline/pipeline-template.yaml`
 
 Now run the generation
 
@@ -59,7 +59,7 @@ Now go on and split your `pipeline.yaml` into for example
 - `ci/pipeline/jobs/_release.yml`
 
 This is just an example, you could not use folders at all or even deeper nesting. The only rule is, all "partials"
-so all files to be merged into your main `ci/pipeline/pipeline.yaml` must begin match this glob
+so all files to be merged into your main `ci/pipeline/pipeline-template.yaml` must begin match this glob
 
 partial: `_*.yaml`
 
@@ -78,7 +78,7 @@ Or you can just mix all those anytime as you like.
 
 List all options using `ctpl help` but in general you have a usecase like
 
-This assumes your `pipeline.yaml` is at `./pipeline_special/pipeline.yaml` and generates the result to `/tmp/pipeline.yaml`
+This assumes your `pipeline-template.yaml` is at `./pipeline_special/pipeline-template.yaml` and generates the result to `/tmp/pipeline.yaml`
 
 ```console
 ctpl -b ./pipeline_special -o /tmp/pipeline.yaml
@@ -110,7 +110,7 @@ with any other alias or they could colide. If you need an alias in more then one
 
 ## FAQ
 
-**Is the `<basefolder>/pipeline.yaml` file required**
+**Is the `<basefolder>/pipeline-template.yaml` file required**
 
 No
 
