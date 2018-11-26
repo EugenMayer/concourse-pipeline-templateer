@@ -14,7 +14,7 @@
       </COVERAGE_PATTERN>
     </EXTENSION>
     <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/bin/ctpl" />
-    <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="generate -b ./pipeline_a -o pipeline_a.yaml" />
+    <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="compile -b ./pipeline_a -o pipeline_a.yaml" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

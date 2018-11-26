@@ -1,3 +1,9 @@
+groups:
+- name: test-group
+  jobs:
+    - parent-job1
+    - child-job
+
 jobs:
   - name: parent-job1
     plan:

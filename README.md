@@ -151,6 +151,13 @@ The glob is sorted, for now all you can do is using things like
 
 This would put the staging jobs/resources first, then candidate then releases.
 
+## Test
+
+```console
+cd test/assets
+ctpl -b pipeline_a -o pipeline_a.yaml
+ctpl -b pipeline_min -o pipeline_min.yaml
+```
 
 ## Why ruby?
 
@@ -158,6 +165,7 @@ Implementing this feature in golang does need a lot more effort due to the way w
 and just merge some aspects and keep anything else in place until then.
 
 If you feel lucky and want to try to implement in golang as a drop in to `ctpl` - please keep me posted! Very interesting.
+
 
 ## Contribute / Features
 
