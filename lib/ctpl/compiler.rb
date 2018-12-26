@@ -3,22 +3,27 @@ require 'yaml'
 class PipelineCompiler
   include Thor::Shell
 
-  def initialize(mainPipelinePath, globalAliasesPath, partialsFolder)
+  def initialize(mainPipelinePath, globalAliasesPath, partialsFolder, verbose = false)
     loadGlobalAliases(globalAliasesPath)
     loadMainPipeline(mainPipelinePath)
     loadPartials(partialsFolder)
+    @verbose = verbose
   end
 
   def merge
     pipeline = {}
+    say_status 'ok', "Parsing main/global pipeline file", :white if @verbose
+
     pipeline = parseToYaml(@mainPipeline) unless @mainPipeline == ""
 
     # that is our one level merger for the special keys we support
     @partials.each do |filename, partialContent|
-      say_status 'ok', "merging partial #{filename}", :white
+      say_status 'ok', "starting to handle partial: #{filename}", :white
       partialAsHashmap = parseToYaml(partialContent)
 
+      say_status 'step', File.basename(filename, '.yaml') + ": merging hashmaps jobs, resources, types and groups", :white if @verbose
       %w(jobs resources resource_types groups).each do |mergeKey|
+        say_status 'step', File.basename(filename, '.yaml') + ": merging #{mergeKey}", :white if @verbose
         if partialAsHashmap.key?(mergeKey)
           pipeline[mergeKey] = [] unless pipeline.key?(mergeKey)
           pipeline[mergeKey].concat partialAsHashmap[mergeKey]
@@ -28,6 +33,7 @@ class PipelineCompiler
 
       # now put all the others which should not be conflicting. We might do this manually per key to inform
       # when we have conflicts .. since this will override existing keys
+      say_status 'step', File.basename(filename, '.yaml') + ": merging all the rest of the partial", :white if @verbose
       pipeline.merge(partialAsHashmap)
     end
 

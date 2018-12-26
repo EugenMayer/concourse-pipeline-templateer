@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ctpl (0.0.5)
+    ctpl (0.0.6)
       thor (~> 0.20, >= 0.20.0)
 
 GEM
@@ -16,4 +16,4 @@ DEPENDENCIES
   ctpl!
 
 BUNDLED WITH
-   1.16.1
+   1.17.2
