@@ -4,7 +4,6 @@ lib = File.expand_path('./lib', main)
 thor = File.expand_path('./thor', main)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-$dwm_root = File.expand_path('./', __dir__)
 
 
 require 'ctpl/parser/pipeline'

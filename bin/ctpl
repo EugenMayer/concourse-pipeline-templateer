@@ -4,18 +4,12 @@ main = File.dirname(main)
 lib = File.expand_path('../lib', main)
 thor = File.expand_path('../thor', main)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-$dwm_root = Gem::Specification.find_by_name('dwm').gem_dir
 
 require 'thor'
 
 Dir.glob(File.join(thor, '/**/*.thor')).each { |taskfile|
   load taskfile
 }
-
-if Process.uid == 0
-  puts 'Error: Do not run dwm as root'
-  exit 1
-end
 
 begin
   # show the generate help by default
