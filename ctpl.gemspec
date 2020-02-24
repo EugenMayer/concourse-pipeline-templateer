@@ -9,5 +9,5 @@ Gem::Specification.new do |s|
   s.files       = Dir['lib/**/*.rb','thor/**/*.thor','Thorfile', 'bin/ctpl*','VERSION']
   s.license     = 'GPL'
   s.homepage    = 'https://github.com/EugenMayer/concourse-pipeline-templateer'
-  s.add_runtime_dependency 'thor', '~> 0.20', '>= 0.20.0'
+  s.add_runtime_dependency 'thor', '~> 1.0', '>= 1.0.0'
 end
